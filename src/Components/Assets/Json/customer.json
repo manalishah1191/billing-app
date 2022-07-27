@@ -1,0 +1,15 @@
+{
+    "Customer": [
+      {
+        "Name": "Saket Shaha",
+        "mobile": "9404271116",
+        "email": "saketshah@gmail.com",
+        "Address":"Devkinandan Apartment",
+        "City":"Islampur",
+        "State": "Maharashtra",
+        "Country": "India",
+        "Postal-code": "413101"
+      }
+    ]
+}
+      
