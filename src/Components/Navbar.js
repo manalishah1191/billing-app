@@ -1,51 +1,13 @@
 import {NavLink} from "react-router-dom"
 import img1 from "./Assets/images/img1.jpg"
-// import {Header} from "./Assets/Json/Allinone.json"
 
-// import { useState,useEffect } from "react"
-// import axios from "axios"
-
-// export const Navbar=()=>{
-//   const [json, Setjson]=useState([])
-//    useEffect(()=>{
-//     getdata()
-//    },[])
-//   const getdata=async()=>{
-//     let data = await axios.get("http://localhost:5000/Header")
-//     Setjson(data.data)
-//     }
-//   return(
-//     <>
-//       <nav classNameName="navbar navbar-expand-lg navbar-light bg-light">
-//         <div classNameName="container">
-//             <ul classNameName="navbar-nav me-auto mb-2 mb-lg-0">
-//             {json.map((data) => {
-//               return (
-//                 <li classNameName="nav-item">
-//                   <NavLink classNameName="nav-link" to={data.path}>{data.title}</NavLink>
-//                 </li>
-//               );
-//             })}
-//             </ul>
-//             </div>
-//             </nav>
-//             </>
-//   )
-// }
 export const Navbar =()=>{
   return(
     <>
-
-  
     <nav className="navbar navbar-expand-lg navbar-light bg-warning">
   <div className="container-fluid">
   <div className="row">
     <div className="col-12">
-    {/* <a className="navbar-brand" href="#">Navbar</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button> */}
-   
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <img src={img1} height="50px" width="50px"></img>
@@ -53,28 +15,43 @@ export const Navbar =()=>{
           <NavLink className="nav-link active" aria-current="page" to={'/'}>Dashboard</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Customer'}>Customer</NavLink>
+          <NavLink className="nav-link" to={'/customer'}>Customer</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Warehouse'}>Warehouse</NavLink>
+          <NavLink className="nav-link" to={'/customerList'}>Customer List</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Supplier'}>Supplier</NavLink>
+          <NavLink className="nav-link" to={'/warehouse'}>Warehouse</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Product'}>Product</NavLink>
+          <NavLink className="nav-link" to={'/warehouseList'}>Warehouse List</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Invoice'}>Invoice</NavLink>
+          <NavLink className="nav-link" to={'/supplier'}>Supplier</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Purchase_Order'}>Purchase Order</NavLink>
+          <NavLink className="nav-link" to={'/supplierList'}>Supplier  List</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Roles'}>Roles</NavLink>
+          <NavLink className="nav-link" to={'/product'}>Product</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/Promo_Codes'}>Promo Codes</NavLink>
+          <NavLink className="nav-link" to={'/productList'}>Product List</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to={'/invoice'}>Invoice</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to={'/purchaseOrder'}>Purchase Order</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to={'/roles'}>Roles</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to={'/promoCodes'}>Promo Codes</NavLink>
+        </li> 
+        <li className="nav-item">
+          <NavLink className="nav-link" to={'/promoCodesList'}>Promo Codes List</NavLink>
         </li> 
         </ul>
     </div>

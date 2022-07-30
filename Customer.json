@@ -1,15 +1,133 @@
 {
-  "Customer": [
+  "customer": [
+    {
+      "Name": "Manali Gandhi",
+      "mobile": "8483044971",
+      "email": "manalishah1191@gmail.com",
+      "Address": "Sumitra Complex",
+      "City": "Akluj",
+      "State": "Maharashtra",
+      "Country": "India",
+      "Postalcode": "413101",
+      "id": 1
+    },
     {
       "Name": "Saket Shaha",
       "mobile": "9404271116",
-      "email": "saketshah@gmail.com",
-      "Address":"Devkinandan Apartment",
-      "City":"Islampur",
+      "email": "saket@gmail.com",
+      "Address": "Devkinandan Apartment",
+      "City": "Islampur",
       "State": "Maharashtra",
       "Country": "India",
-      "Postal-code": "413101"
+      "Postalcode": "458168",
+      "id": 2
+    },
+    {
+      "Name": "Sweety Raval",
+      "mobile": "8549318852",
+      "email": "sweety@gmail.com",
+      "Address": "Abcd road",
+      "City": "Karad",
+      "State": "Maharashtra",
+      "Country": "India",
+      "Postalcode": "485963",
+      "id": 3
+    },
+    {
+      "Name": "Sanika Shaha",
+      "mobile": "8596324852",
+      "email": "sanika@gmail.com",
+      "Address": "Karve Road",
+      "City": "Tasgaon",
+      "State": "Maharashtra",
+      "Country": "India",
+      "Postalcode": "489652",
+      "id": 4
+    },
+    {
+      "Name": "Sarthak Shaha",
+      "mobile": "8967289548",
+      "email": "sarthak@gmail.com",
+      "Address": "Baner",
+      "City": "Pune",
+      "State": "Maharashtra",
+      "Country": "India",
+      "Postalcode": "485169",
+      "id": 5
+    }
+  ],
+  "warehouse": [
+    {
+      "Name": "Manali Gandhi",
+      "Description": "female",
+      "Address": "akluj",
+      "id": 1
+    },
+    {
+      "Name": "Pradnya Patange",
+      "Description": "Female",
+      "Address": "Pune",
+      "id": 2
+    }
+  ],
+  "promocodes": [
+    {
+      "code": "we10",
+      "amount": "50000",
+      "qty": "10",
+      "validDate": "10/11/2023",
+      "id": 1
+    }
+  ],
+  "supplier": [
+    {
+      "Name": "xx",
+      "company": "xx",
+      "GSTIN_number": "xx",
+      "mobile": "xx",
+      "email": "xx",
+      "Address": "xx",
+      "City": "x",
+      "State": "x",
+      "Country": "x",
+      "id": 2
+    },
+    {
+      "Name": " vc  v",
+      "company": " v xc",
+      "GSTIN_number": " v v",
+      "mobile": " vc c ",
+      "email": "vc v",
+      "Address": "  v v ",
+      "City": "cbbxd",
+      "State": "bfbfbx",
+      "Country": "fxcbdxb ",
+      "id": 3
+    },
+    {
+      "Name": "Anvit Gandhi",
+      "company": "Ruchi Veg",
+      "GSTIN_number": "785419",
+      "mobile": "9028338406",
+      "email": "anvitgandhi@gmail.com",
+      "Address": "Main Road",
+      "City": "Akluj",
+      "State": "Maharashtra",
+      "Country": "India",
+      "id": 4
+    }
+  ],
+  "product": [
+    {
+      "product_name": "Specs",
+      "product_code": "b25",
+      "product_catagory": "Ecommerce",
+      "warehouse": "Akluj",
+      "product_retail_price": "400",
+      "product_order_price": "350",
+      "measurement": "20*20",
+      "product_img": "img.jpg",
+      "id": 1
     }
   ]
 }
-    

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 const initialState = {
@@ -17,18 +17,57 @@ const Customer = () => {
   // Put your all use state here. 
   const [formState, setFormState] = useState(initialState);
 
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  function isValidMobileNo(mobileNo) {
+    return /^[0-9]{10}$/.test(mobileNo)
+  }
+
+  const validateForm = () =>{
+    console.log("formState", formState)
+
+      if (formState.Name ===""){
+        return false;
+      }
+      if (formState.mobile ==="" || isValidMobileNo(formState.mobile)){
+        return false;
+      }
+      if (formState.email ==="" || isValidEmail(formState.email)){
+        return false;
+      }
+      if (formState.Address ===""){
+        return false;
+      }
+      if (formState.City ===""){
+        return false;
+      }
+      if (formState.State ===""){
+        return false;
+      }
+      if (formState.Country ===""){
+        return false;
+      }
+      if (formState.Postalcode ===""){
+        return false;
+      }
+       return true;
+  }
   // All your function goes here...
   const createCustomer = () => {
     // console.log("Form State", formState);
-
-    axios.post('http://localhost:4000/Customer', formState)
+  console.log("validateForm()", validateForm())
+  if(validateForm()){
+    axios.post('http://localhost:4000/customer', formState)
       .then((response) => {
-        console.log(response)
-        // setFormState(initialState);
+        // console.log(response)
+        setFormState(initialState);
       })
       .catch((error) => console.log(error))
 
   }
+}
 
   const formValueChange = (event, fieldType) => {
 
@@ -72,19 +111,19 @@ const Customer = () => {
         <div className='col mt-5'>
         <h3>Create Customer</h3>
       <div className="form-group row my-2">
-        <label className="col-sm-2 col-form-label">Name</label>
+        <label className="col-sm-2 col-form-label">Name*</label>
         <div className="col-sm-4">
           <input type="text" className="form-control" value={formState.Name} onChange={(event) => formValueChange(event, "NAME")} />
         </div>
       </div>
       <div className="form-group row my-2">
-        <label className="col-sm-2 col-form-label">Mobile No</label>
+        <label className="col-sm-2 col-form-label">Mobile No*</label>
         <div className="col-sm-4">
           <input type="text" className="form-control" value={formState.mobile} onChange={(event) => formValueChange(event, "MOBILE_NO")} />
         </div>
       </div>
       <div className="form-group row my-2">
-        <label className="col-sm-2 col-form-label">Email</label>
+        <label className="col-sm-2 col-form-label">Email*</label>
         <div className="col-sm-4">
           <input type="email" className="form-control" value={formState.email} onChange={(event) => formValueChange(event, "EMAIL")} />
         </div>
@@ -96,19 +135,19 @@ const Customer = () => {
         </div>
       </div>
       <div className="form-group row my-2">
-        <label className="col-sm-2 col-form-label">City</label>
+        <label className="col-sm-2 col-form-label">City*</label>
         <div className="col-sm-4">
           <input type="text" className="form-control" value={formState.City} onChange={(event) => formValueChange(event, "CITY")} />
         </div>
       </div>
       <div className="form-group row my-2">
-        <label className="col-sm-2 col-form-label">State</label>
+        <label className="col-sm-2 col-form-label">State*</label>
         <div className="col-sm-4">
           <input type="text" className="form-control" value={formState.State} onChange={(event) => formValueChange(event, "STATE")} />
         </div>
       </div>
       <div className="form-group row my-2">
-        <label className="col-sm-2 col-form-label">Country</label>
+        <label className="col-sm-2 col-form-label">Country*</label>
         <div className="col-sm-4">
           <input type="text" className="form-control" value={formState.Country} onChange={(event) => formValueChange(event, "COUNTRY")} />
         </div>
@@ -134,60 +173,6 @@ const Customer = () => {
 
 
 
-const CustomerList = () => {
 
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    loadCustomerData()
-  }, [])
-
-  const loadCustomerData = () => {
-    axios.get('http://localhost:4000/Customer')
-      .then((response) => setData(response.data))
-      .catch((error) => console.error("error", error))
-  }
-
-  return (
-    <div>
-      <h3>Customers List</h3>
-      {console.log("data", data)}
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Email</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
-            <th scope="col">State</th>
-            <th scope="col">Country</th>
-            <th scope="col">Postalcode</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            data.map((Customer, index) => {
-              return (
-                <tr key={index}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{Customer.Name}</td>
-                  <td>{Customer.mobile}</td>
-                  <td>{Customer.email}</td>
-                  <td>{Customer.Address}</td>
-                  <td>{Customer.City}</td>
-                  <td>{Customer.State}</td>
-                  <td>{Customer.Country}</td>
-                  <td>{Customer.Postalcode}</td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
-    </div>
-  )
-}
 
 export default Customer

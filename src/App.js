@@ -3,15 +3,20 @@
 import { Navbar } from './Components/Navbar'
 
 import {Route,Routes} from 'react-router-dom';
-import Customer from './Components/Pages/Customer';
-import Dashboard from './Components/Pages/Dashboard';
-import Warehouse from './Components/Pages/Warehouse';
-import Supplier from './Components/Pages/Supplier';
-import Invoice from './Components/Pages/Invoice';
-import Product from './Components/Pages/Product';
-import Purchase_order from './Components/Pages/Purchaseorder';
-import Roles from './Components/Pages/Roles';
-import Promo_codes from './Components/Pages/Promocodes'
+import Customer from './Components/Pages/customer';
+import CustomerList from './Components/Pages/customerList';
+import Dashboard from './Components/Pages/dashboard';
+import Warehouse from './Components/Pages/warehouse';
+import WarehouseList from './Components/Pages/warehouseList'
+import Supplier from './Components/Pages/supplier';
+import SupplierList from './Components/Pages/supplierList';
+import Invoice from './Components/Pages/invoice';
+import Product from './Components/Pages/product';
+import ProductList from './Components/Pages/productList';
+import PurchaseOrder from './Components/Pages/purchaseOrder';
+import Roles from './Components/Pages/roles';
+import PromoCodes from './Components/Pages/promoCodes';
+import PromoCodesList from './Components/Pages/promoCodesList';
 
 function App() {
   return (
@@ -20,14 +25,19 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path='/' exact element={<Dashboard/>}/>
-      <Route path='/Customer'exact element={<Customer/>}/>
-      <Route path='/Warehouse'exact element={<Warehouse/>}/>
-      <Route path='/Supplier'exact element={<Supplier/>}/>
-      <Route path='/Invoice'exact element={<Invoice/>}/>
-      <Route path='/Product'exact element={<Product/>}/>
-      <Route path='/Purchase_order'exact element={<Purchase_order/>}/>
-      <Route path='/Roles'exact element={<Roles/>}/>
-      <Route path='/Promo_codes'exact element={<Promo_codes/>}/>
+      <Route path='/customer'exact element={<Customer/>}/>
+      <Route path='/customerList'exact element={<CustomerList/>}/> 
+      <Route path='/warehouse'exact element={<Warehouse/>}/>
+      <Route path='/warehouseList'exact element={<WarehouseList/>}/>
+      <Route path='/supplier'exact element={<Supplier/>}/>
+      <Route path='/supplierList'exact element={<SupplierList/>}/>
+      <Route path='/invoice'exact element={<Invoice/>}/>
+      <Route path='/product'exact element={<Product/>}/>
+      <Route path='/productList'exact element={<ProductList/>}/>
+      <Route path='/purchaseOrder'exact element={<PurchaseOrder/>}/>
+      <Route path='/roles'exact element={<Roles/>}/>
+      <Route path='/promoCodes'exact element={<PromoCodes/>}/>
+      <Route path='/promoCodesList'exact element={<PromoCodesList/>}/>
     </Routes>
    
     
