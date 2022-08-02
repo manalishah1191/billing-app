@@ -27,6 +27,7 @@ function App() {
       <Route path='/' exact element={<Dashboard/>}/>
       <Route path='/customer'exact element={<Customer/>}/>
       <Route path='/customerList'exact element={<CustomerList/>}/> 
+      <Route path='/updatecustomer/:id' element={<Customer/>}/>
       <Route path='/warehouse'exact element={<Warehouse/>}/>
       <Route path='/warehouseList'exact element={<WarehouseList/>}/>
       <Route path='/supplier'exact element={<Supplier/>}/>

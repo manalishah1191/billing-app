@@ -1,9 +1,11 @@
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 const CustomerList = () => {
 
     const [data, setData] = useState([]);
+    const navigate=useNavigate();
   
     useEffect(() => {
       loadCustomerData()
@@ -21,6 +23,9 @@ const CustomerList = () => {
         loadCustomerData();
       }
     }
+const customerEdit=(data)=>{
+  navigate(`/updatecustomer/$(data.id)`);
+}
     return (
       <div>
         <h3>Customers List</h3>
@@ -56,7 +61,7 @@ const CustomerList = () => {
                     <td>{customer.Country}</td>
                     <td>{customer.Postalcode}</td>
                     <td width="170">
-                    <button type="button" className="btn btn-primary me-2">Edit</button>
+                    <button type="button" className="btn btn-primary me-2" onClick={()=>customerEdit(customer)}>Edit</button>
                     <button type="button" className="btn btn-danger" onClick={() => customerDelete(customer)}>Delete</button>
                   </td>
                   </tr>

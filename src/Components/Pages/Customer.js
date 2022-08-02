@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useNavigate, useParams } from 'react-router-dom';
 
 const initialState = {
   "Name": "",
@@ -17,10 +18,33 @@ const Customer = () => {
   // Put your all use state here. 
   const [formState, setFormState] = useState(initialState);
 
+  let params = useParams();
+  const navigate = useNavigate();
+  const [editCustomer, setEditCustomer] = useState(Object.keys(params).length !== 0 ? true : false)
+
+  useEffect(() => {
+    if (editCustomer) {
+      axios.get(`http://localhost:4000/customer/${params?.id}`)
+        .then((response) => updateCustomerFormData(response?.data))
+        .catch((error) => console.log(error));
+    }
+  }, [])
+
+  const updateCustomerFormData = (data) => {
+    setFormState({ ...data });
+  }
+  useEffect(()=>{
+    getData();
+  },[])
+  const getData=()=>{
+    axios.get(`http://localhost:4000/customer`)
+    .then((response)=>console.log(response.data))
+    .catch((error)=>console.log(error))
+  }
+
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
-
   function isValidMobileNo(mobileNo) {
     return /^[0-9]{10}$/.test(mobileNo)
   }
@@ -59,14 +83,27 @@ const Customer = () => {
     // console.log("Form State", formState);
   console.log("validateForm()", validateForm())
   if(validateForm()){
+    if (editCustomer){
+      axios.put(`http://localhost:4000/customer/${params?.id}`,formState)
+      
+      .then((response)=>{
+        let newState ={...initialState};
+        setFormState(newState);
+        navigate('/');
+      })
+      .catch((error)=>console.log(error))
+    } else {
     axios.post('http://localhost:4000/customer', formState)
       .then((response) => {
+        let newState ={...initialState};
+        setFormState(newState);
         // console.log(response)
-        setFormState(initialState);
+        // setFormState(initialState);
       })
       .catch((error) => console.log(error))
 
   }
+}
 }
 
   const formValueChange = (event, fieldType) => {
@@ -106,6 +143,8 @@ const Customer = () => {
   }
 
   return (
+    <div>
+    <h3>{!editCustomer ? 'Create' : 'Update'} Customers</h3>
     <div className='container bg-danger'>
       <div className='row'>
         <div className='col mt-5'>
@@ -160,13 +199,13 @@ const Customer = () => {
       </div>   
       <div className="form-group row my-2">
         <div className="col-sm-4">
-          <button type="submit" className="btn btn-primary" onClick={() => createCustomer()}>Create Customer</button>
+          <button type="submit" className="btn btn-primary" onClick={() => createCustomer()}>{!editCustomer ? 'Create' : 'Update' }Create Customer</button>
         </div>
       </div>
     </div>
         </div>
       </div>
-      
+      </div>
   )
 }
 
