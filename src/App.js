@@ -1,21 +1,21 @@
 
-// import './App.css';
+import './App.css';
 import { Navbar } from './Components/Navbar'
 
 import {Route,Routes} from 'react-router-dom';
-import Customer from './Components/Pages/customer';
+import Customer from './Components/Pages/Customer';
 import CustomerList from './Components/Pages/customerList';
-import Dashboard from './Components/Pages/dashboard';
-import Warehouse from './Components/Pages/warehouse';
+import Dashboard from './Components/Pages/Dashboard';
+import Warehouse from './Components/Pages/Warehouse';
 import WarehouseList from './Components/Pages/warehouseList'
-import Supplier from './Components/Pages/supplier';
+import Supplier from './Components/Pages/Supplier';
 import SupplierList from './Components/Pages/supplierList';
-import Invoice from './Components/Pages/invoice';
-import Product from './Components/Pages/product';
+import Invoice from './Components/Pages/Invoice';
+import Product from './Components/Pages/Product';
 import ProductList from './Components/Pages/productList';
-import PurchaseOrder from './Components/Pages/purchaseOrder';
-import Roles from './Components/Pages/roles';
-import PromoCodes from './Components/Pages/promoCodes';
+import PurchaseOrder from './Components/Pages/Purchaseorder';
+import Roles from './Components/Pages/Roles';
+import PromoCodes from './Components/Pages/Promocodes';
 import PromoCodesList from './Components/Pages/promoCodesList';
 import TopContent from './Components/Pages/TopContent';
 
@@ -43,11 +43,8 @@ function App() {
       <Route path='/promoCodes'exact element={<PromoCodes/>}/>
       <Route path='/promoCodesList'exact element={<PromoCodesList/>}/>
     </Routes>
-   
-    sadjfhaskjdfjgshfj
     </div>
       
-       manali
   );
 }
 
