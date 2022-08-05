@@ -3,9 +3,9 @@ import img1 from "./Assets/images/img1.jpg"
 
 export const Navbar =()=>{
   return(
-    <>
-    <nav className="navbar navbar-expand-lg navbar-light bg-warning">
-  <div className="container-fluid">
+    <div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-warning">
+  <div className="container">
   <div className="row">
     <div className="col-12">
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -18,25 +18,13 @@ export const Navbar =()=>{
           <NavLink className="nav-link" to={'/customer'}>Customer</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/customerList'}>Customer List</NavLink>
-        </li>
-        <li className="nav-item">
           <NavLink className="nav-link" to={'/warehouse'}>Warehouse</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to={'/warehouseList'}>Warehouse List</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to={'/supplier'}>Supplier</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to={'/supplierList'}>Supplier  List</NavLink>
-        </li>
-        <li className="nav-item">
           <NavLink className="nav-link" to={'/product'}>Product</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to={'/productList'}>Product List</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to={'/invoice'}>Invoice</NavLink>
@@ -50,9 +38,21 @@ export const Navbar =()=>{
         <li className="nav-item">
           <NavLink className="nav-link" to={'/promoCodes'}>Promo Codes</NavLink>
         </li> 
-        <li className="nav-item">
-          <NavLink className="nav-link" to={'/promoCodesList'}>Promo Codes List</NavLink>
-        </li> 
+        <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle pe-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><b>
+                  List</b>
+                </a>
+                <ul className="dropdown-menu">
+                  <li><a className="dropdown-item bg-info" href="/customerList"><b>Customer</b></a></li>
+                  <li><a className="dropdown-item bg-info" href="/supplierList"><b>Supplier</b></a></li>
+                  <li><a className="dropdown-item bg-info" href="/warehouseList"><b>arehouse</b></a></li>
+                  <li><a className="dropdown-item bg-info" href="/promoCodesList"><b>Promocodes</b></a></li>
+                  <li><a className="dropdown-item bg-info" href="/productList"><b>Products</b></a></li>
+                  <li><a className="dropdown-item bg-info" href="/rolelist"><b>Role</b></a></li>
+                  {/* <li><hr className="dropdown-divider" /></li>
+                  <li><a className="dropdown-item" href="#">Something else here</a></li> */}
+                </ul>
+              </li>
         </ul>
     </div>
   </div>
@@ -60,8 +60,8 @@ export const Navbar =()=>{
   </div>
 </nav>
     
+</div>
 
-</>
 
   )
 }

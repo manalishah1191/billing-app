@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const initialState = {
   "Name": "",
@@ -18,13 +19,46 @@ const Supplier = () => {
   // Put your all use state here. 
   const [formState, setFormState] = useState(initialState);
 
-  
+  let params = useParams();
+  const navigate = useNavigate();
+  const [editSupplier, setEditSupplier] = useState(Object.keys(params).length !== 0 ? true : false)
+
+  useEffect(() => {
+    if (editSupplier) {
+      axios.get(`http://localhost:4000/supplier/${params?.id}`)
+        .then((response) => updateSupplierFormData(response?.data))
+        .catch((error) => console.log(error));
+    }
+  }, [])
+
+  const updateSupplierFormData = (data) => {
+    setFormState({ ...data });
+  }
+  useEffect(()=>{
+    getData();
+  },[])
+  const getData=()=>{
+    axios.get(`http://localhost:4000/supplier`)
+    .then((response)=>console.log(response.data))
+    .catch((error)=>console.log(error))
+  }
+
 
   
   // All your function goes here...
   const createSupplier = () => {
     // console.log("Form State", formState);
   // console.log("validateForm()", validateForm())
+  if (editSupplier){
+    axios.put(`http://localhost:4000/supplier/${params?.id}`,formState)
+    
+    .then((response)=>{
+      let newState ={...initialState};
+      setFormState(newState);
+      navigate('/');
+    })
+    .catch((error)=>console.log(error))
+  } else {
     axios.post('http://localhost:4000/supplier', formState)
       .then((response) => {
         // console.log(response)
@@ -32,6 +66,7 @@ const Supplier = () => {
       })
       .catch((error) => console.log(error))
 }
+  }
 
   const formValueChange = (event, fieldType) => {
 
@@ -74,9 +109,10 @@ const Supplier = () => {
 
   return (
     <div className='container bg-danger'>
+       <h3>{!editSupplier ? 'Create' : 'Update'} Create Suppliers</h3>
       <div className='row'>
         <div className='col mt-5'>
-        <h3>Create Supplier</h3>
+        {/* <h3>Create Supplier</h3> */}
       <div className="form-group row my-2">
         <label className="col-sm-2 col-form-label">Name*</label>
         <div className="col-sm-4">
@@ -133,7 +169,7 @@ const Supplier = () => {
       </div>
       <div className="form-group row my-2">
         <div className="col-sm-4">
-          <button type="submit" className="btn btn-primary" onClick={() => createSupplier()}>Create Supplier</button>
+          <button type="submit" className="btn btn-primary" onClick={() => createSupplier()}>{!editSupplier ? 'Create' : 'Update' }Create Supplier</button>
         </div>
       </div>
     </div>

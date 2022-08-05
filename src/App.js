@@ -17,14 +17,16 @@ import PurchaseOrder from './Components/Pages/purchaseOrder';
 import Roles from './Components/Pages/roles';
 import PromoCodes from './Components/Pages/promoCodes';
 import PromoCodesList from './Components/Pages/promoCodesList';
+import TopContent from './Components/Pages/TopContent';
 
 function App() {
   return (
-    <>
+    <div className='container'>
    
     <Navbar/>
     <Routes>
-      <Route path='/' exact element={<Dashboard/>}/>
+    <Route path="/" element={<TopContent />} />
+      {/* <Route path='/' exact element={<Dashboard/>}/> */}
       <Route path='/customer'exact element={<Customer/>}/>
       <Route path='/customerList'exact element={<CustomerList/>}/> 
       <Route path='/updatecustomer/:id' element={<Customer/>}/>
@@ -32,6 +34,7 @@ function App() {
       <Route path='/warehouseList'exact element={<WarehouseList/>}/>
       <Route path='/supplier'exact element={<Supplier/>}/>
       <Route path='/supplierList'exact element={<SupplierList/>}/>
+      <Route path='/updatesupplier/:id' element={<Supplier/>}/>
       <Route path='/invoice'exact element={<Invoice/>}/>
       <Route path='/product'exact element={<Product/>}/>
       <Route path='/productList'exact element={<ProductList/>}/>
@@ -42,7 +45,7 @@ function App() {
     </Routes>
    
     
-    </>
+    </div>
       
        
   );

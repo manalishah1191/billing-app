@@ -24,7 +24,7 @@ const CustomerList = () => {
       }
     }
 const customerEdit=(data)=>{
-  navigate(`/updatecustomer/$(data.id)`);
+  navigate(`/updatecustomer/${data.id}`);
 }
     return (
       <div>

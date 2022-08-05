@@ -23,7 +23,7 @@
       "id": 2
     },
     {
-      "Name": "Sweety Raval",
+      "Name": "Sweety Raval12",
       "mobile": "8549318852",
       "email": "sweety@gmail.com",
       "Address": "Abcd road",
@@ -35,7 +35,7 @@
     },
     {
       "Name": "Sanika Shaha",
-      "mobile": "8596324852",
+      "mobile": "9458623597",
       "email": "sanika@gmail.com",
       "Address": "Karve Road",
       "City": "Tasgaon",
@@ -81,33 +81,9 @@
   ],
   "supplier": [
     {
-      "Name": "xx",
-      "company": "xx",
-      "GSTIN_number": "xx",
-      "mobile": "xx",
-      "email": "xx",
-      "Address": "xx",
-      "City": "x",
-      "State": "x",
-      "Country": "x",
-      "id": 2
-    },
-    {
-      "Name": " vc  v",
-      "company": " v xc",
-      "GSTIN_number": " v v",
-      "mobile": " vc c ",
-      "email": "vc v",
-      "Address": "  v v ",
-      "City": "cbbxd",
-      "State": "bfbfbx",
-      "Country": "fxcbdxb ",
-      "id": 3
-    },
-    {
       "Name": "Anvit Gandhi",
       "company": "Ruchi Veg",
-      "GSTIN_number": "785419",
+      "GSTIN_number": "060319",
       "mobile": "9028338406",
       "email": "anvitgandhi@gmail.com",
       "Address": "Main Road",
